@@ -47,7 +47,7 @@ const CAROUSEL_SLIDES = [
     title: "Blindaje",
     subtitle: "Jurídico",
     description: "Protección legal integral para asegurar la continuidad y el cumplimiento de su negocio.",
-    image: "https://i.postimg.cc/rFb4VR0f/asesoria-legal.jpg",
+    image: "https://i.postimg.cc/NjzNCbpw/wall4.jpg",
     accent: "Protección"
   },
   {
@@ -96,8 +96,8 @@ const SERVICES = [
     description: "Análisis estratégico y planificación para maximizar la rentabilidad.",
     items: [
       "Proyectos de Inversión",
-      "Estudios de Factibilidad",
-      "Análisis de Datos Financieros",
+      "Estudios de Factibilidad Económica",
+      "Estudios de mercados",
       "Valoración de Negocios",
       "Optimización de Estructura de Costos",
       "Planificación Fiscal Estratégica"
@@ -121,7 +121,7 @@ const ContactForm = ({ isModal = false, onClose }: { isModal?: boolean, onClose?
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMessage = `Hola TJ Group, mi nombre es ${formData.name}. Mi correo es ${formData.email}. Mensaje: ${formData.message || "Me gustaría solicitar una consultoría."}`;
-    const whatsappUrl = `https://wa.me/584144777039?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/584149499634?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, "_blank");
     if (onClose) onClose();
   };
@@ -338,7 +338,7 @@ const HeroCarousel = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 0.8 }}
-                  className="text-6xl md:text-[10vw] font-serif text-white leading-[0.85] mb-8 tracking-tighter"
+                  className="text-4xl md:text-[6vw] font-serif text-white leading-[0.85] mb-8 tracking-tighter"
                 >
                   {CAROUSEL_SLIDES[current].title} <br />
                   <span className="italic text-secondary font-light">{CAROUSEL_SLIDES[current].subtitle}</span>
@@ -452,7 +452,7 @@ const About = () => {
               <Target size={32} className="text-primary mb-8" />
               <h4 className="text-3xl font-serif text-primary mb-4">Misión</h4>
               <p className="text-neutral-gray text-lg leading-relaxed font-light">
-                Transformar desafíos complejos en estructuras operativas ágiles y rentables mediante acompañamiento integral.
+                Impulsar el crecimiento sostenible de nuestros clientes mediante un acompañamiento integral en las áreas legal, financiera, organizacional y humana, transformando sus capacidades en fortalezas competitivas.
               </p>
             </motion.div>
 
@@ -461,11 +461,11 @@ const About = () => {
               initial={{ opacity: 0, y: 30 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bento-card bg-primary text-white p-12"
+              className="bento-card bg-soft-bg border border-neutral-gray/10 p-12"
             >
-              <Eye size={32} className="text-white mb-8" />
-              <h4 className="text-3xl font-serif mb-4">Visión</h4>
-              <p className="text-white/70 text-lg leading-relaxed font-light">
+              <Eye size={32} className="text-primary mb-8" />
+              <h4 className="text-3xl font-serif text-primary mb-4">Visión</h4>
+              <p className="text-neutral-gray text-lg leading-relaxed font-light">
                 Ser el aliado estratégico global para crear organizaciones humanas, eficientes y preparadas para el mañana.
               </p>
             </motion.div>
@@ -481,13 +481,13 @@ const About = () => {
                 <Users size={32} className="text-primary mb-8" />
                 <h4 className="text-3xl font-serif text-primary mb-4">Equipo Multidisciplinario</h4>
                 <p className="text-neutral-gray text-lg leading-relaxed font-light">
-                  Abogados, Economistas e Ingenieros trabajando en sincronía para su éxito.
+                  Abogados, Economistas, Contadores e Ingenieros trabajando en sincronía para su éxito.
                 </p>
               </div>
               <div className="flex -space-x-4">
                 {[1, 2, 3, 4].map(i => (
                   <div key={i} className="w-16 h-16 rounded-full border-4 border-white bg-soft-bg overflow-hidden shadow-xl">
-                    <img src={`https://picsum.photos/seed/expert_tj_${i}/200/200`} alt="Expert" className="w-full h-full object-cover grayscale" />
+                    <img src={`https://i.pravatar.cc/150?u=tjgroup_team_${i}`} alt="Expert" className="w-full h-full object-cover grayscale" />
                   </div>
                 ))}
               </div>
@@ -542,14 +542,32 @@ const PromoBanners = () => {
               </motion.button>
             </div>
             
-            {/* Image placeholder matching description */}
-            <div className="absolute bottom-0 right-0 w-1/2 h-4/5 pointer-events-none">
-              <img 
-                src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800" 
-                alt="Business woman reading" 
-                className="w-full h-full object-contain object-right-bottom opacity-90 group-hover:scale-105 transition-transform duration-1000"
-                referrerPolicy="no-referrer"
-              />
+            {/* 3D Icon Graphic */}
+            <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center">
+              <div className="relative">
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 border-2 border-dashed border-primary/10 rounded-full scale-150"
+                />
+                <div className="relative z-10 w-48 h-48 rounded-full border-4 border-soft-bg p-8 overflow-hidden bg-white flex items-center justify-center shadow-[0_0_50px_rgba(6,78,59,0.05)]">
+                  <motion.div
+                    animate={{ 
+                      y: [0, 15, 0],
+                      rotate: [0, -5, 5, 0]
+                    }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Briefcase size={120} className="text-primary drop-shadow-[0_10px_10px_rgba(0,0,0,0.1)]" />
+                  </motion.div>
+                </div>
+                <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-xl">
+                  <Scale size={24} className="text-white" />
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-secondary rounded-full flex items-center justify-center shadow-xl">
+                  <TrendingUp size={24} className="text-white" />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -589,7 +607,7 @@ const PromoBanners = () => {
               </motion.button>
             </div>
 
-            {/* Shield and Professionals Graphic */}
+            {/* Icon Graphic */}
             <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center">
               <div className="relative">
                 <motion.div
@@ -597,13 +615,16 @@ const PromoBanners = () => {
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   className="absolute inset-0 border-2 border-dashed border-secondary/30 rounded-full scale-150"
                 />
-                <div className="relative z-10 w-48 h-48 rounded-full border-4 border-secondary/50 p-1 overflow-hidden bg-primary">
-                  <img 
-                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600" 
-                    alt="Professionals" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="relative z-10 w-48 h-48 rounded-full border-4 border-secondary/50 p-8 overflow-hidden bg-primary flex items-center justify-center shadow-[0_0_50px_rgba(16,185,129,0.3)]">
+                  <motion.div
+                    animate={{ 
+                      y: [0, -15, 0],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Users size={120} className="text-secondary drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]" />
+                  </motion.div>
                 </div>
                 <div className="absolute -top-4 -right-4 w-12 h-12 bg-secondary rounded-full flex items-center justify-center shadow-xl">
                   <ShieldCheck size={24} className="text-white" />
@@ -642,7 +663,7 @@ const Services = () => {
             <button 
               onClick={() => {
                 const whatsappMessage = "Hola TJ Group, me gustaría solicitar información sobre sus servicios de precisión.";
-                window.open(`https://wa.me/584144777039?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+                window.open(`https://wa.me/584149499634?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
               }}
               className="mt-8 flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-primary hover:text-secondary transition-colors group"
             >
@@ -683,10 +704,39 @@ const Services = () => {
   );
 };
 
+const Essence = () => {
+  return (
+    <section className="py-32 bg-white relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
+          <Quote className="absolute -top-12 -left-4 text-secondary/10 w-24 h-24 -z-10" />
+          <h2 className="text-3xl md:text-5xl font-serif text-primary leading-tight italic">
+            "Somos un equipo multidisciplinario de profesionales enfocados en brindar su experiencia y conocimiento en asesoría y consultoría corporativa, en las áreas financiera, legal, y organizacional"
+          </h2>
+          <div className="mt-12 flex justify-center items-center gap-4">
+            <div className="h-px w-12 bg-secondary/30" />
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-gray/40">Nuestra Esencia</span>
+            <div className="h-px w-12 bg-secondary/30" />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const Values = () => {
   return (
     <section id="valores" className="py-32 bg-secondary border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-20">
+          <h2 className="text-white font-serif text-5xl md:text-7xl mb-8">Nuestros Valores</h2>
+          <div className="h-px w-20 bg-white/20 mx-auto" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-16">
           {VALUES.map((value, i) => (
             <motion.div
@@ -723,17 +773,22 @@ const Contact = () => {
               Inicie su <br /> <span className="italic text-secondary">Transformación</span>
             </h3>
             <div className="space-y-8">
-              <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-soft-bg flex items-center justify-center rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                  <Phone size={20} />
+              <div className="flex flex-col gap-8">
+                <div className="flex items-center gap-6 group">
+                  <div className="w-14 h-14 bg-soft-bg flex items-center justify-center rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                    <Phone size={20} />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xl font-light text-neutral-gray">+58 241-8241278</span>
+                    <span className="text-xl font-light text-neutral-gray">+58 414-9499634</span>
+                  </div>
                 </div>
-                <span className="text-xl font-light text-neutral-gray">+34 900 123 456</span>
-              </div>
-              <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-soft-bg flex items-center justify-center rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                  <Mail size={20} />
+                <div className="flex items-center gap-6 group">
+                  <div className="w-14 h-14 bg-soft-bg flex items-center justify-center rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                    <Mail size={20} />
+                  </div>
+                  <span className="text-xl font-light text-neutral-gray">contacto@tjgroup.com</span>
                 </div>
-                <span className="text-xl font-light text-neutral-gray">contacto@tjgroup.com</span>
               </div>
             </div>
           </div>
@@ -846,6 +901,7 @@ export default function App() {
         <About />
         <PromoBanners />
         <Services />
+        <Essence />
         <Values />
         <Contact />
       </main>
