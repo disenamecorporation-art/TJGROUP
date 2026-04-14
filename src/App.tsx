@@ -70,7 +70,7 @@ const SERVICES = [
       "Asesoría jurídica integral",
       "Redacción y revisión de contratos",
       "Gestión Seniat / Sundde",
-      "Registro de Marcas y Patentes",
+      "Registros de marcas patentes derechos de autor",
       "Derecho Sucesoral y Civil",
       "Cumplimiento Normativo (Compliance)"
     ]
@@ -111,6 +111,27 @@ const VALUES = [
   { name: "Confidencialidad", icon: <Lock size={28} />, desc: "Resguardo absoluto de su información." },
   { name: "Eficiencia", icon: <Zap size={28} />, desc: "Optimización máxima de recursos." },
   { name: "Conocimiento", icon: <Search size={28} />, desc: "Análisis situacional de alto nivel." },
+];
+
+const TEAM = [
+  {
+    name: "Andres Thomson",
+    role: "Magister Ciencias Políticas",
+    position: "Socio Director",
+    image: "https://i.postimg.cc/CLwJfr4R/Whats-App-Image-2026-04-13-at-11-52-19.jpg"
+  },
+  {
+    name: "María Andreina Jiménez",
+    role: "Economista / Abogada",
+    position: "Socia director",
+    image: "https://i.postimg.cc/qMpQCDGz/Whats-App-Image-2026-04-13-at-11-52-19-(1).jpg"
+  },
+  {
+    name: "Deysi Grillos",
+    role: "Economista",
+    position: "Asociada",
+    image: "https://i.postimg.cc/CLwJfr4x/Whats-App-Image-2026-04-13-at-14-30-58.jpg"
+  }
 ];
 
 // --- Components ---
@@ -425,7 +446,7 @@ const About = () => {
             className="lg:col-span-5"
           >
             <h2 className="text-neutral-gray font-black uppercase tracking-[0.6em] text-[10px] mb-8">Identidad & Propósito</h2>
-            <h3 className="text-5xl md:text-8xl font-serif text-primary leading-[0.9] mb-12 tracking-tighter">
+            <h3 className="text-4xl md:text-6xl font-serif text-primary leading-[0.9] mb-12 tracking-tighter">
               Aliados en su <br /> <span className="italic text-secondary">Evolución</span>
             </h3>
             <p className="text-neutral-gray text-xl leading-relaxed font-light mb-12">
@@ -484,15 +505,86 @@ const About = () => {
                   Abogados, Economistas, Contadores e Ingenieros trabajando en sincronía para su éxito.
                 </p>
               </div>
-              <div className="flex -space-x-4">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-16 h-16 rounded-full border-4 border-white bg-soft-bg overflow-hidden shadow-xl">
-                    <img src={`https://i.pravatar.cc/150?u=tjgroup_team_${i}`} alt="Expert" className="w-full h-full object-cover grayscale" />
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Team = () => {
+  return (
+    <section id="equipo" className="py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-24">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-neutral-gray font-black uppercase tracking-[0.6em] text-[10px] mb-4"
+          >
+            Liderazgo Estratégico
+          </motion.h2>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-5xl md:text-7xl font-serif text-primary tracking-tighter"
+          >
+            Nuestro <span className="italic text-secondary">Equipo</span>
+          </motion.h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
+          {TEAM.map((member, i) => (
+            <motion.div
+              key={member.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2, duration: 0.8 }}
+              className="group text-center"
+            >
+              <div className="relative mb-10 mx-auto w-64 h-64 md:w-72 md:h-72">
+                {/* Decorative rings */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 border border-dashed border-secondary/30 rounded-full -m-4"
+                />
+                <motion.div 
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 border border-primary/10 rounded-full -m-8"
+                />
+                
+                {/* Image container */}
+                <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-white shadow-2xl transition-transform duration-700 group-hover:scale-105">
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i * 0.2) + 0.4 }}
+              >
+                <h4 className="text-3xl font-serif text-primary mb-2 tracking-tight">{member.name}</h4>
+                <p className="text-secondary font-medium text-sm uppercase tracking-widest mb-1">{member.role}</p>
+                <p className="text-neutral-gray/60 font-light italic">{member.position}</p>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -652,7 +744,7 @@ const Services = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32 items-end">
           <div className="lg:col-span-8">
             <h2 className="text-neutral-gray font-black uppercase tracking-[0.6em] text-[10px] mb-8">Especialidades</h2>
-            <h3 className="text-6xl md:text-[100px] font-serif text-primary leading-[0.9] tracking-tighter">
+            <h3 className="text-4xl md:text-6xl font-serif text-primary leading-[0.9] tracking-tighter">
               Servicios de <br /> <span className="italic text-secondary">Precisión</span>
             </h3>
           </div>
@@ -734,7 +826,7 @@ const Values = () => {
     <section id="valores" className="py-32 bg-secondary border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-white font-serif text-5xl md:text-7xl mb-8">Nuestros Valores</h2>
+          <h2 className="text-white font-montserrat font-bold text-3xl md:text-4xl uppercase tracking-widest mb-8">Nuestros Valores</h2>
           <div className="h-px w-20 bg-white/20 mx-auto" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-16">
@@ -787,7 +879,16 @@ const Contact = () => {
                   <div className="w-14 h-14 bg-soft-bg flex items-center justify-center rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-all">
                     <Mail size={20} />
                   </div>
-                  <span className="text-xl font-light text-neutral-gray">contacto@tjgroup.com</span>
+                  <span className="text-xl font-light text-neutral-gray">info@tjgroupconsulting.com</span>
+                </div>
+                <div className="flex items-center gap-6 group">
+                  <div className="w-14 h-14 bg-soft-bg flex items-center justify-center rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                    <MapPin size={20} />
+                  </div>
+                  <span className="text-xl font-light text-neutral-gray leading-tight">
+                    4 Av. de Prebo, C.C. Multicentro paseo El Parral <br />
+                    Piso 8 Oficina 8-2. Valencia edo. Carabobo
+                  </span>
                 </div>
               </div>
             </div>
@@ -898,10 +999,11 @@ export default function App() {
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <main>
         <HeroCarousel />
+        <Essence />
         <About />
+        <Team />
         <PromoBanners />
         <Services />
-        <Essence />
         <Values />
         <Contact />
       </main>
