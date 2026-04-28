@@ -127,7 +127,7 @@ const TEAM = [
     image: "https://i.postimg.cc/qMpQCDGz/Whats-App-Image-2026-04-13-at-11-52-19-(1).jpg"
   },
   {
-    name: "Deysi Grillos",
+    name: "Deysi Grillo",
     role: "Economista",
     position: "Asociada",
     image: "https://i.postimg.cc/CLwJfr4x/Whats-App-Image-2026-04-13-at-14-30-58.jpg"
